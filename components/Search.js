@@ -1,16 +1,18 @@
 import React from "react";
-import { View, StyleSheet, ScrollView } from "react-native";
-import { SearchBar, ListItem } from "react-native-elements";
+import { View, StyleSheet, ScrollView,SearchBar, ListItem } from "react-native";
+//import { SearchBar, ListItem } from "@react-native-elements";
 
 export default class Search extends React.Component {
+    constructor(){
+        super();
+    }
 
     state = {
         results: [],
         searchQuery: "",
         isLoading: false
     }
-//bawega1638@qortu.com
-    Alpugues47
+
     _search() {
         if (this.state.searchQuery.length > 0) {
             this.setState({ isLoading: true });

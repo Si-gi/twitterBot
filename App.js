@@ -1,37 +1,28 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet, Text, View, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import SearchForm from './views/SearchResult';
+import React, { Component } from 'react';
 
-import useCachedResources from './hooks/useCachedResources';
-import BottomTabNavigator from './navigation/BottomTabNavigator';
-import LinkingConfiguration from './navigation/LinkingConfiguration';
 
 const Stack = createStackNavigator();
 
-export default function App(props) {
-  const isLoadingComplete = useCachedResources();
 
-  if (!isLoadingComplete) {
-    return null;
-  } else {
+export default class App extends Component {
+    constructor(props){
+        super(props);
+
+    }
+  render() {
     return (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-        <NavigationContainer linking={LinkingConfiguration}>
-          <Stack.Navigator>
-            <Stack.Screen name="Settings" component={Settings} />
-            <Stack.Screen name="Twitts" component={Twitts} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </View>
-    );
+      <NavigationContainer>
+            <Stack.Navigator>
+        <Stack.Screen name="SearchForm" component={SearchForm}
+                      options={({ route
+                      }) => ({ q: 5 })}
+        ></Stack.Screen>
+        </Stack.Navigator>
+              </NavigationContainer>
+        );
   }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
+}
