@@ -1,20 +1,21 @@
 import React from "react";
-import { StyleSheet, View, Alert, Modal, TouchableHighlight, ActivityIndicator } from "react-native";
+import { StyleSheet, View, TouchableHighlight, ActivityIndicator } from "react-native";
 import { Text, Button, Image } from "react-native-elements";
 import { Ionicons } from "react-native-vector-icons";
-import twitter from "react-native-simple-twitter";
+import {postTwitt} from "../../../Twitter_api";
 
-export default class GoBotPostAuto extends React.Component {
+export default class ManageBotPostAuto extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            modalVisible: false,
+
+            botId: this.props.route.params.bot.botId,
             type: this.props.route.params.bot.type,
             botName: this.props.route.params.bot.botName,
             tweet: this.props.route.params.bot.tweet,
             displayTime: this.props.route.params.bot.displayTime,
-            interval: parseInt(this.props.route.params.bot.interval),
+            time: parseInt(this.props.route.params.bot.time),
             intervalId: ""
         };
     }
@@ -23,20 +24,18 @@ export default class GoBotPostAuto extends React.Component {
         clearInterval(this.state.intervalId);
     }
 
-    setModalVisible = (visible) => {
-        this.setState({ modalVisible: visible });
-    }
+
 
     startBot() {
-        this.setModalVisible(true);
+
         this.sendTweet();
-        let intervalId = setInterval(() => this.sendTweet(), this.state.interval);
+        let intervalId = setInterval(() => this.sendTweet(), this.state.time);
         this.setState({ intervalId: intervalId });
     }
 
-    stopBot(modalVisible) {
+    stopBot() {
         clearInterval(this.state.intervalId);
-        this.setModalVisible(!modalVisible);
+
     }
 
     sendTweet() {
@@ -53,39 +52,27 @@ export default class GoBotPostAuto extends React.Component {
 
         tweet += this.state.tweet;
 
-        twitter.requst("POST", "url", tweet);
+        postTwitt(this.state.botId, tweet);
 
     }
 
 
     render() {
-        const { modalVisible } = this.state;
-
         return (
             <View style={styles.container}>
-                <Modal
-                    animationType="slide"
-                    transparent={true}
-                    visible={modalVisible}
-                    onRequestClose={() => {
-                        Alert.alert("Modal has been closed.");
-                    }}
-                >
                     <View style={styles.centeredView}>
-                        <View style={styles.modalView}>
-                            <Text h4 style={styles.modalText}>Bot lancé !</Text>
+                        <View>
+                            <Text h4 >Bot lancé !</Text>
                             <TouchableHighlight
                                 style={{ ...styles.stopButton }}
                                 onPress={() => {
-                                    this.stopBot(modalVisible);
+                                    this.stopBot();
                                 }}
                             >
                                 <Text style={styles.textStyle}>STOP</Text>
                             </TouchableHighlight>
                         </View>
                     </View>
-                </Modal>
-
 
                 <Text h2>{this.state.botName}</Text>
 
@@ -94,7 +81,7 @@ export default class GoBotPostAuto extends React.Component {
                         name={"ios-hourglass"}
                         size={35}
                         color={"blue"} />
-                    <Text h4>  {this.state.interval}</Text>
+                    <Text h4>  {this.state.time}</Text>
                 </View>
 
                 {this.state.displayTime &&
@@ -157,21 +144,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 22
     },
-    modalView: {
-        margin: 20,
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5
-    },
     stopButton: {
         backgroundColor: "red",
         borderRadius: 20,
@@ -182,10 +154,6 @@ const styles = StyleSheet.create({
     textStyle: {
         color: "white",
         fontWeight: "bold",
-        textAlign: "center"
-    },
-    modalText: {
-        marginBottom: 15,
         textAlign: "center"
     },
 })

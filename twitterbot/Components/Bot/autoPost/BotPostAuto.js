@@ -10,38 +10,20 @@ export default class BotPostAuto extends React.Component {
         super(props);
         this.state = {
             type: 'post',
+            botId: "",
             botName: "",
             tweet: "",
-            displayTime: false,
-            interval: ""
+            time: ""
         };
     }
 
-    confirmBot() {
-        Alert.alert(
-            "Confirmation de votre bot",
-            `Nom : ${this.state.botName}\nContenu : ${this.state.tweet}\nHeure : ${this.state.displayTime}\nIntervalle : ${this.state.interval}`,
-            [
-                {
-                    text: "Oui",
-                    onPress: () => {
-                        this.props.route.params.addBot(this.state);
-                        this.props.navigation.navigate("BotMenu");
-                    }
-                },
-                {
-                    text: "Annuler"
-                }
-            ]
-        );
-    }
 
     handleBotNameChange = botName => {
         this.setState({ botName });
     }
 
-    handlePickerChange = interval => {
-        this.setState({ interval });
+    handlePickerChange = time => {
+        this.setState({ time });
     }
 
     handleSwitchChange = displayTime => {
@@ -51,6 +33,9 @@ export default class BotPostAuto extends React.Component {
     handleTweetChange = tweet => {
         this.setState({ tweet });
     }
+    handleBotId = botId => {
+        this.setState({botId})
+    }
 
     render() {
         return (
@@ -58,6 +43,7 @@ export default class BotPostAuto extends React.Component {
                 <Text h2>Bot</Text>
 
                 <TextInput placeholder="Nom de votre bot" value={this.state.botName} onChangeText={this.handleBotNameChange} style={styles.input} />
+                <TextInput placeholder="Son identifiant" value={this.state.botId} onChangeText={this.handleBotId} style={styles.input} />
                 <TextInput placeholder="Votre tweet" value={this.state.tweet} onChangeText={this.handleTweetChange} style={styles.input} />
                 <View style={styles.switchView}>
                     <Text style={{ fontWeight: "bold" }}>Afficher l'heure dans vos tweet</Text>
@@ -68,15 +54,14 @@ export default class BotPostAuto extends React.Component {
                 </View>
                 <TouchableOpacity style={styles.picker}>
                     <Picker
-                        selectedValue={this.state.interval}
+                        selectedValue={this.state.time}
                         onValueChange={this.handlePickerChange}
-                        prompt='Intervalle entre chaque tweet de votre bot'
+                        prompt='timele entre chaque tweet de votre bot'
                     >
-                        <Picker.Item label="1 minute" value="60000" />
-                        <Picker.Item label="5 minutes" value="300000" />
                         <Picker.Item label="15 minutes" value="900000" />
                         <Picker.Item label="30 minutes" value="1800000" />
                         <Picker.Item label="1 heure" value="3600000" />
+                        <Picker.Item label="13h12" value="56160000" />
                         <Picker.Item label="24 heures" value="86400000" />
                     </Picker>
 
@@ -84,8 +69,8 @@ export default class BotPostAuto extends React.Component {
 
                 <Button
                     buttonStyle={styles.buttons}
-                    onPress={() => this.confirmBot()}
-                    icon={
+                    onPress={() => this.props.route.params.addBot(this.state)}
+                    icon={  z
                         <Ionicons
                             name={"ios-redo"}
                             size={15}

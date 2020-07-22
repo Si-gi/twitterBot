@@ -16,11 +16,6 @@ export default class BotPostAuto extends React.Component {
         };
     }
 
-    startBot() {
-         this.props.route.params.addBot(this.state);
-         this.props.navigation.navigate("BotMenu");
-    }
-
     handleBotNameChange = botName => {
         this.setState({ botName });
     }
@@ -65,7 +60,7 @@ export default class BotPostAuto extends React.Component {
 
                 <Button
                     color = "blue"
-                    onPress={() => this.startBot()}
+                    onPress={() => this.props.route.params.addBot(this.state)}
                     icon={
                         <Ionicons
                             name={"ios-redo"}
@@ -99,8 +94,4 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'stretch',
     },
-    nouveauMot: {
-        width: 80,
-        margin: 20,
-    }
 })

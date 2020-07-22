@@ -14,14 +14,14 @@ export async function searchUser(query){
     return search_result;
 }
 
-export async function getTweetsFromIdUser(id_user){
+export async function getTweetsFromIdUser(user_id){
 
     var requestOptions = {
         method: "GET",
         redirect: "follow"
     };
     
-    fetch("https://api.twitter.com/1.1/statuses/user_timeline.json?user_id="+id_user, requestOptions)
+    fetch("https://api.twitter.com/1.1/statuses/user_timeline.json?user_id="+user_id, requestOptions)
         .then(response => response.json())
         .catch(error => console.log("error", error));
     return [
@@ -37,6 +37,13 @@ export async function getTweetsFromIdUser(id_user){
             hastag: ["bot", "truc"]
         }
     ];
+}
+
+export async function postTweet(user_id, tweet){
+
+    fetch("url?user_id="+user_id+"tweet="+tweet)
+        .then(response => response.json())
+        .catch(error => console.log("error", error));
 
 
 }

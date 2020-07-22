@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ProjectId" id="1f2illjZJXwyETbz9UYelCzJjXy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -18,19 +19,22 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/assets" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\dossier\reactNative\twitterBot\twitterbot\assets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\dossier\reactNative\twitterBot\twitterbot\Components\Bot" />
       <recent name="D:\dossier\reactNative\twitterBot\twitterbot\Components\Bot\autoResponse" />
       <recent name="D:\dossier\reactNative\twitterBot\twitterbot\Components\Bot\autoPost" />
       <recent name="D:\dossier\reactNative\twitterBot\twitterbot\assets" />
       <recent name="D:\dossier\reactNative\twitterBot\twitterbot\Components\Stats" />
-      <recent name="D:\dossier\reactNative\twitterBot\twitterbot" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\dossier\reactNative\twitterBot\twitterbot\assets" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -55,9 +59,18 @@
       <screen x="1920" y="0" width="2560" height="1400" />
     </state>
     <state x="2931" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.2560.1400@1920.0.2560.1400" timestamp="1595423428716" />
-    <state x="2863" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1595431253263">
-      <screen x="1920" y="0" width="2560" height="1400" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1595440208127">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1595440208127" />
+    <state x="616" y="242" key="run.anything.popup" timestamp="1595440452759">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595440452759" />
+    <state x="707" y="234" width="504" height="504" key="search.everywhere.popup" timestamp="1595439346809">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="2863" y="315" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.2560.1400@1920.0.2560.1400" timestamp="1595431253263" />
+    <state x="707" y="234" width="504" height="504" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595439346809" />
   </component>
 </project>
