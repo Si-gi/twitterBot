@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, TextInput, Picker, TouchableOpacity, Switch, Alert, FlatList } from "react-native";
+import { StyleSheet, View, TextInput, TouchableOpacity } from "react-native";
 import { Text, Button } from "react-native-elements";
 import { Ionicons } from "react-native-vector-icons";
 
@@ -19,10 +19,10 @@ export default class BotPostAuto extends React.Component {
         this.setState({ botName });
     }
 
-    handleMotChange = (mot, index) => {
+    handlewordChange = (word, index) => {
         this.setState(prevState => ({
             reponses: prevState.reponses.map(
-                obj => (obj.id === index ? Object.assign(obj, { mot: mot }) : obj)
+                obj => (obj.id == index ? Object.assign(obj, { word: word }) : obj)
             )
         }));
     }
@@ -30,7 +30,7 @@ export default class BotPostAuto extends React.Component {
     handleReponseChange = (reponse, index) => {
         this.setState(prevState => ({
             reponses: prevState.reponses.map(
-                obj => (obj.id === index ? Object.assign(obj, { reponse: reponse }) : obj)
+                obj => (obj.id == index ? Object.assign(obj, { reponse: reponse }) : obj)
             )
         }));
     }
@@ -40,11 +40,11 @@ export default class BotPostAuto extends React.Component {
             <View>
                 <Text h2>Bot</Text>
 
-                <TextInput placeholder="Nom de votre bot" value={this.state.botName} onChangeText={this.handleBotNameChange} style={styles.input} />
+                <TextInput placeholder="Bot name" value={this.state.botName} onChangeText={this.handleBotNameChange} style={styles.input} />
 
                 <View style={styles.dictionnaire}>
-                    <TextInput placeholder="Mot déclencheur" style={styles.inputDico} value={this.state.reponses[0].mot} onChangeText={(mot) => this.handleMotChange(mot, 0)} />
-                    <TextInput placeholder="Réponse" style={styles.inputDico} value={this.state.reponses[0].reponse} onChangeText={(mot) => this.handleReponseChange(mot, 0)} />
+                    <TextInput placeholder="Commande " style={styles.inputDico} value={this.state.reponses[0].word} onChangeText={(word) => this.handlewordChange(word, 0)} />
+                    <TextInput placeholder="tweet réponse" style={styles.inputDico} value={this.state.reponses[0].reponse} onChangeText={(word) => this.handleReponseChange(word, 0)} />
                 </View>
 
                 <Button

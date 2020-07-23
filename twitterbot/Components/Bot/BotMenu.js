@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, TextInput, ScrollView} from "react-native";
 import { Ionicons } from "react-native-vector-icons";
-import { Text, Button, Divider, ListItem, Icon } from "react-native-elements";
+import { Text, Button, ListItem, Icon } from "react-native-elements";
 
 export default class BotMenu extends React.Component {
 
@@ -20,6 +20,7 @@ export default class BotMenu extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <Text h1>Liste des bots</Text>
                 <View style={styles.containerButtons}>
                     <Button
                         buttonStyle={styles.buttons}
@@ -28,7 +29,7 @@ export default class BotMenu extends React.Component {
                         })}
                         icon={
                             <Ionicons
-                                name={"ios-redo"}
+                                name={"arrow-redo-outline"}
                                 size={15}
                                 color={"white"} />
                         }
@@ -49,7 +50,7 @@ export default class BotMenu extends React.Component {
                     />
                 </View>
                 <View style={styles.containerList}>
-                    <Text h1>Liste des bots</Text>
+
                     <ScrollView style={styles.scrollView}>
                         {
                             this.state.bots.map((bot, index) => (
@@ -87,12 +88,11 @@ export default class BotMenu extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'space-around',
-        padding: 30,
+        padding: 25,
     },
     containerButtons: {
         flex: 0.2,
-        justifyContent: 'space-around',
+        justifyContent: "space-around",
     },
     containerList: {
         flex: 0.8
@@ -103,4 +103,4 @@ const styles = StyleSheet.create({
     buttons: {
         backgroundColor: "blue"
     },
-})
+});
