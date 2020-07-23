@@ -9,12 +9,10 @@ class SearchUser extends React.Component {
     state = {
         users: [],
         searchQuery: "",
-        isLoading: false
     }
 
     _search(){
         if(this.state.searchQuery.length > 0){
-            this.setState({isLoading: true});
     
             twitter.api("GET", "users/search.json", { q: this.state.searchQuery })
                 .then(response => response)
@@ -28,7 +26,6 @@ class SearchUser extends React.Component {
                 .catch(error => console.warn(error));
         }
         else {
-            this.setState({isLoading: false});
             this.setState({users: []});
         }
     }
@@ -37,17 +34,14 @@ class SearchUser extends React.Component {
         return(
             <View style={styles.container}>
                 <SearchBar
-                    placeholder="Type Here..."
                     onChangeText={(text) => 
                     {
                         this.setState({searchQuery: text}, this._search);
                     }
                     }
                     value={this.state.searchQuery}
-                    placeholder="Rechercher..."
-                    autoCapitalize="none"
-                    showLoading={this.state.isLoading}
-                    onClear={() => {this.setState({users: []})}}
+                    placeholder="@User"
+                    onClear={() => {this.setState({users: []});}}
                 />
                 <ScrollView style={styles.usersScroll}>
                     {
@@ -70,7 +64,7 @@ class SearchUser extends React.Component {
                                 subtitle={"@"+u.screen_name}
                                 bottomDivider
                                 subtitleStyle={{ color: "blue" }}
-                                onPress={() => {this.props.navigation.navigate("UserSingle", {user: u})}}
+                                onPress={() => {this.props.navigation.navigate("UserSingle", {user: u});}}
                                 chevron
                             />
                         ))
