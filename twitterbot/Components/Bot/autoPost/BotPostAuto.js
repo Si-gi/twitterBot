@@ -70,7 +70,7 @@ export default class BotPostAuto extends React.Component {
                 <Button
                     buttonStyle={styles.buttons}
                     onPress={() => this.props.route.params.addBot(this.state)}
-                    icon={  z
+                    icon={ 
                         <Ionicons
                             name={"ios-redo"}
                             size={15}
