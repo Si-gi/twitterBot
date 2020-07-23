@@ -11,7 +11,8 @@ export default class BotPostAuto extends React.Component {
         this.state = {
             type: "reponse",
             botName: "",
-            reponses:  "" 
+            response:  "",
+            command: ""
         };
     }
 
@@ -19,20 +20,12 @@ export default class BotPostAuto extends React.Component {
         this.setState({ botName });
     }
 
-    handlewordChange = (word, index) => {
-        this.setState(prevState => ({
-            reponses: prevState.reponses.map(
-                obj => (obj.id == index ? Object.assign(obj, { word: word }) : obj)
-            )
-        }));
+    handlewordChange = (command) => {
+        this.setState({command} );
     }
 
-    handleReponseChange = (reponse, index) => {
-        this.setState(prevState => ({
-            reponses: prevState.reponses.map(
-                obj => (obj.id == index ? Object.assign(obj, { reponse: reponse }) : obj)
-            )
-        }));
+    handleResponseChange = response => {
+        this.setState({response });
     }
 
     render() {
@@ -43,8 +36,8 @@ export default class BotPostAuto extends React.Component {
                 <TextInput placeholder="Bot name" value={this.state.botName} onChangeText={this.handleBotNameChange} style={styles.input} />
 
                 <View style={styles.dictionnaire}>
-                    <TextInput placeholder="Commande " style={styles.inputDico} value={this.state.reponses[0].word} onChangeText={(word) => this.handlewordChange(word, 0)} />
-                    <TextInput placeholder="tweet réponse" style={styles.inputDico} value={this.state.reponses[0].reponse} onChangeText={(word) => this.handleReponseChange(word, 0)} />
+                    <TextInput placeholder="Commande " style={styles.inputDico} value={this.command} onChangeText={(command) => this.handlewordChange(command)} />
+                    <TextInput placeholder="tweet réponse" style={styles.inputDico} value={this.state.response} onChangeText={(response) => this.handleResponseChange(response)} />
                 </View>
 
                 <Button
@@ -52,8 +45,8 @@ export default class BotPostAuto extends React.Component {
                     onPress={() => this.props.route.params.addBot(this.state)}
                     icon={
                         <Ionicons
-                            name={"ios-redo"}
-                            size={15}
+                            name={"arrow-redo-outline"}
+                            size={10}
                             color={"white"} />
                     }
                     title=" Bot réponse auto"
