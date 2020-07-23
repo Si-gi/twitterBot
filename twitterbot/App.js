@@ -23,7 +23,7 @@ export default function App() {
                                 let iconName;
 
                                 if (route.name === "Stats") {
-                                    iconName = "ios-analytics";
+                                    iconName = "analytics-outline";
                                 } else if (route.name === "Bot") {
                                     iconName = "logo-android";
                                 }
