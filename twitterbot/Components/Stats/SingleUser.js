@@ -42,9 +42,6 @@ class SingleUser extends React.Component {
         // getTweetsFromUser(this.props.route.params.user.id).then(data => {
         //     this.setState({tweets: data});
         // });
-        // if(this.props.favoritesUsers.includes(this.props.route.params.user.pseudo)){
-        //     this.setState({infavorites: true});
-        // }
     }
 
     toggleFavorite(){
@@ -62,7 +59,7 @@ class SingleUser extends React.Component {
 
     render(){
         const user = this.props.route.params.user;
-        const profilImage = user.avatar;
+        const user_avatar = user.avatar;
         this.props.navigation.setOptions(
             { 
                 title: user.name,
@@ -86,8 +83,8 @@ class SingleUser extends React.Component {
             <View style={styles.container}>
                 <View style={styles.header}>
                     <Image
-                        source={{ uri: profilImage }}
-                        style={styles.userImage}
+                        source={{ uri: user_avatar }}
+                        style={styles.avatar}
                         PlaceholderContent={<ActivityIndicator />}
                     />
                     <View>
@@ -163,14 +160,12 @@ const styles = StyleSheet.create({
     header: {
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 20,
+        paddingTop: 18,
         flexDirection: "row"
     },
-    userImage: {
+    avatar: {
         width: 100,
-        height: 100,
-        borderRadius: 75,
-        marginRight: 20
+        height: 100
     },
     mapStyle: {
         flex: 0.25,
@@ -187,8 +182,8 @@ const styles = StyleSheet.create({
         borderRadius: 6
     },
     iconContainer: {
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         alignItems: "center",
         justifyContent: "center",
         padding: 10,
