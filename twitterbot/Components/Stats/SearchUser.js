@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import {connect} from "react-redux";
-import twitter from "react-native-simple-twitter";
 import { SearchBar, ListItem, Icon } from "react-native-elements";
 import { Ionicons } from "react-native-vector-icons";
 

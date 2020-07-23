@@ -1,5 +1,3 @@
-
-const twitter = { key : "bidule"};
 const search_result = {
     id: 0,
     name: "Simon",

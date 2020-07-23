@@ -17,12 +17,34 @@ class SingleUser extends React.Component {
     }
 
     componentDidMount(){
-        getTweetsFromUser(this.props.route.params.user.id).then(data => {
-            this.setState({tweets: data});
-        });
-        if(this.props.favoritesUsers.includes(this.props.route.params.user.pseudo)){
-            this.setState({infavorites: true});
-        }
+        var requestOptions = {
+            method: "GET",
+            redirect: "follow"
+        };
+
+        fetch("https://api.twitter.com/1.1/statuses/user_timeline.json?user_id="+this.props.route.params.user.id, requestOptions)
+            .then(response => response.json())
+            .catch(error => console.log("error", error));
+        return [
+            {
+                id: 0,
+                author : "Simon",
+                content : "Hello world"
+            },
+            {
+                id: 1,
+                author: "Ayoub",
+                content: "Worl hello, i am a #bot",
+                hastag: ["bot", "truc"]
+            }
+        ];
+
+        // getTweetsFromUser(this.props.route.params.user.id).then(data => {
+        //     this.setState({tweets: data});
+        // });
+        // if(this.props.favoritesUsers.includes(this.props.route.params.user.pseudo)){
+        //     this.setState({infavorites: true});
+        // }
     }
 
     toggleFavorite(){
@@ -88,7 +110,7 @@ class SingleUser extends React.Component {
                             />
                         </View>
                     </View>
-                    <View style={styles.statItem}>F
+                    <View style={styles.statItem}>
                         <View style={styles.iconContainer}>
                             <Icon
                                 size={15} 

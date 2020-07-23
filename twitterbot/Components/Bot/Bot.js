@@ -4,7 +4,7 @@ import BotMenu from './BotMenu';
 import BotPostAuto from './autoPost/BotPostAuto';
 import BotReponseAuto from './autoResponse/BotReponseAuto';
 import ManageBotPostAuto from './autoPost/ManageBotPostAuto';
-import GoBotReponseAuto from './autoResponse/ManageBotReponseAuto';
+import ManageBotReponseAuto from './autoResponse/ManageBotReponseAuto';
 
 const Stack = createStackNavigator();
 
@@ -26,8 +26,8 @@ export default class Settings extends React.Component {
                 <Stack.Screen name="BotMenu" component={BotMenu} options={{ title: "Bots" }} />
                 <Stack.Screen name="BotPostAuto" component={BotPostAuto} options={{ title: "Bot post automatique" }} />
                 <Stack.Screen name="BotReponseAuto" component={BotReponseAuto} options={{ title: "Bot réponse automatique" }} />
-                <Stack.Screen name="GoBotPostAuto" component={ManageBotPostAuto} options={{ title: "Bot" }} />
-                <Stack.Screen name="GoBotReponseAuto" component={GoBotReponseAuto} options={{ title: "Bot" }} />
+                <Stack.Screen name="ManageBotPostAuto" component={ManageBotPostAuto} options={{ title: "Bot" }} />
+                <Stack.Screen name="ManageBotReponseAuto" component={ManageBotReponseAuto} options={{ title: "Bot" }} />
             </Stack.Navigator>
         );
     }

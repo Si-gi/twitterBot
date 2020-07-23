@@ -53,7 +53,7 @@ class ListUserS extends React.Component {
                                 <View style={{flexDirection: "row", alignItems: "center"}}>
                                     <Text style={{marginRight: 5}}>{user.name}</Text>
                                     <Icon
-                                        iconStyle= "flex"
+                                        iconStyle={{display:  "flex"}}
                                         type="octicon"
                                         name="verified"
                                         color="#00acee"

@@ -55,10 +55,10 @@ export default class BotMenu extends React.Component {
                             this.state.bots.map((bot, index) => (
                                 <ListItem
                                     key={index}
-                                    leftAvatar={{ source: "/assets/img/bot.png" }}
+                                    leftAvatar= "/assets/img/bot.png"
                                     title={
                                         <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                            <Text style={{ marginRight: 5 }}>{bot.name}</Text>
+                                            <Text style={{ marginRight: 5 }}>{bot.botName}</Text>
                                         </View>
                                     }
                                     bottomDivider
@@ -66,9 +66,10 @@ export default class BotMenu extends React.Component {
                                     chevron={{ color: "blue" }}
                                     onPress={() => {
                                         if (bot.type == "post") {
-                                            this.props.navigation.navigate("GoBotPostAuto", { bot: bot });
+                                            this.props.navigation.navigate("ManageBotPostAuto", { bot: bot });
+
                                         } else {
-                                            this.props.navigation.navigate("GoBotReponseAuto", { bot: bot });
+                                            this.props.navigation.navigate("ManageBotReponseAuto", { bot: bot });
                                         }
                                     }}
                                 />

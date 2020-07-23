@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, TouchableHighlight, ActivityIndicator } from "react-native";
+import { StyleSheet, View, TouchableOpacity, ActivityIndicator } from "react-native";
 import { Text, Button, Image } from "react-native-elements";
 import { Ionicons } from "react-native-vector-icons";
 import {postTwitt} from "../../../Twitter_api";
@@ -9,13 +9,12 @@ export default class ManageBotPostAuto extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
             botId: this.props.route.params.bot.botId,
             type: this.props.route.params.bot.type,
             botName: this.props.route.params.bot.botName,
             tweet: this.props.route.params.bot.tweet,
             displayTime: this.props.route.params.bot.displayTime,
-            time: parseInt(this.props.route.params.bot.time),
+            time: this.props.route.params.bot.time,
             intervalId: ""
         };
     }
@@ -23,8 +22,6 @@ export default class ManageBotPostAuto extends React.Component {
     componentWillUnmount() {
         clearInterval(this.state.intervalId);
     }
-
-
 
     startBot() {
 
@@ -63,14 +60,14 @@ export default class ManageBotPostAuto extends React.Component {
                     <View style={styles.centeredView}>
                         <View>
                             <Text h4 >Bot lancé !</Text>
-                            <TouchableHighlight
+                            <TouchableOpacity
                                 style={{ ...styles.stopButton }}
                                 onPress={() => {
                                     this.stopBot();
                                 }}
                             >
-                                <Text style={styles.textStyle}>STOP</Text>
-                            </TouchableHighlight>
+                                <Text> Stop bot</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
 
@@ -107,13 +104,7 @@ export default class ManageBotPostAuto extends React.Component {
                     onPress={() => {
                         this.startBot();
                     }}
-                    icon={
-                        <Ionicons
-                            name={"ios-rocket"}
-                            size={15}
-                            color={"white"} />
-                    }
-                    title=" GO"
+                    title="StartBot"
                 />
             </View>
         );

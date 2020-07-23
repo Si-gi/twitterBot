@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, View, TextInput, Picker, TouchableOpacity, Switch, Alert } from "react-native";
 import { Text, Button } from "react-native-elements";
 import { Ionicons } from "react-native-vector-icons";
-import twitter from "react-native-simple-twitter";
 
 export default class BotPostAuto extends React.Component {
 
