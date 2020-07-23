@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, TouchableOpacity, ActivityIndicator } from "react-native";
+import { StyleSheet, View, ActivityIndicator } from "react-native";
 import { Text, Button, Image } from "react-native-elements";
 import { Ionicons } from "react-native-vector-icons";
 import {postTwitt} from "../../../Twitter_api";
@@ -57,19 +57,19 @@ export default class ManageBotPostAuto extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                    <View style={styles.centeredView}>
-                        <View>
-                            <Text h4 >Bot lancé !</Text>
-                            <TouchableOpacity
-                                style={{ ...styles.stopButton }}
-                                onPress={() => {
-                                    this.stopBot();
-                                }}
-                            >
-                                <Text> Stop bot</Text>
-                            </TouchableOpacity>
-                        </View>
+                <View style={styles.centeredView}>
+                    <View>
+                        <Text h4 >Bot lancé !</Text>
+                        <Button
+                            buttonStyle={styles.stopButton}
+                            onPress={() => {
+                                this.stopBot();
+                            }}
+                            title="Stop Bot"
+                        />
+
                     </View>
+                </View>
 
                 <Text h2>{this.state.botName}</Text>
 
@@ -115,16 +115,16 @@ export default class ManageBotPostAuto extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'space-around',
+        alignItems: "center",
+        justifyContent: "space-around",
         padding: 30,
     },
     paramsContainer: {
-        flexDirection: 'row',
-        alignItems: 'center'
+        flexDirection: "row",
+        alignItems: "center"
     },
     center: {
-        alignItems: 'center'
+        alignItems: "center"
     },
     buttons: {
         backgroundColor: "blue"
@@ -147,4 +147,4 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         textAlign: "center"
     },
-})
+});
