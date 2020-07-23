@@ -18,13 +18,12 @@ export default class Stats extends React.Component {
                     { 
                         title: "Favoris",
                         headerRight: () => (
-                            <TouchableOpacity 
-                                style={{marginRight: 10}}
+                            <TouchableOpacitys
                                 onPress={
                                     () => { this.props.navigation.navigate("SearchUser");}
                                 }
                             >
-                            </TouchableOpacity>
+                            </TouchableOpacitys>
                         ) 
                     }
                 } />

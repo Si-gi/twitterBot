@@ -12,6 +12,8 @@ class SingleUser extends React.Component {
     }
 
     state = {
+        user: [],
+        nb_tweet: 1312,
         tweets : [],
         infavorites: false
     }
@@ -21,7 +23,9 @@ class SingleUser extends React.Component {
             method: "GET",
             redirect: "follow"
         };
-
+        this.setState(
+            {user: this.props.route.params.user}
+        )
         fetch("https://api.twitter.com/1.1/statuses/user_timeline.json?user_id="+this.props.route.params.user.id, requestOptions)
             .then(response => response.json())
             .catch(error => console.log("error", error));
@@ -42,9 +46,6 @@ class SingleUser extends React.Component {
         // getTweetsFromUser(this.props.route.params.user.id).then(data => {
         //     this.setState({tweets: data});
         // });
-        // if(this.props.favoritesUsers.includes(this.props.route.params.user.pseudo)){
-        //     this.setState({infavorites: true});
-        // }
     }
 
     toggleFavorite(){
@@ -62,7 +63,7 @@ class SingleUser extends React.Component {
 
     render(){
         const user = this.props.route.params.user;
-        const profilImage = user.avatar;
+        const user_avatar = user.avatar;
         this.props.navigation.setOptions(
             { 
                 title: user.name,
@@ -86,8 +87,8 @@ class SingleUser extends React.Component {
             <View style={styles.container}>
                 <View style={styles.header}>
                     <Image
-                        source={{ uri: profilImage }}
-                        style={styles.userImage}
+                        source={{ uri: user_avatar }}
+                        style={styles.avatar}
                         PlaceholderContent={<ActivityIndicator />}
                     />
                     <View>
@@ -101,29 +102,19 @@ class SingleUser extends React.Component {
                             <Icon
                                 size={15} 
                                 type="font-awesome"
-                                name="calendar-times-o"
-                                color="blue"
-                            />
-                        </View>
-                    </View>
-                    <View style={styles.statItem}>
-                        <View style={styles.iconContainer}>
-                            <Icon
-                                size={15} 
-                                type="font-awesome"
                                 name="twitter"
                                 color="blue"
                             />
                         </View>
                         <View style={{marginLeft: 17}}>
                             <Text style={{fontSize: 17, fontWeight: "bold", marginBottom: 6}}>Oisillonement</Text>
-                            <Text>{user.statuses_count}</Text>
+                            <Text>{this.state.nb_tweets}</Text>
                         </View>
                     </View>
                     <View style={styles.statItem}>
                         <View style={styles.iconContainer}>
                             <Icon
-                                size={15} 
+                                size={15}
                                 type="font-awesome"
                                 name="users"
                                 color="blue"
@@ -158,37 +149,31 @@ class SingleUser extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#ECEFF1"
+        backgroundColor: "#d1f1e7"
     },
     header: {
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 20,
+        paddingTop: 18,
         flexDirection: "row"
     },
-    userImage: {
+    avatar: {
         width: 100,
-        height: 100,
-        borderRadius: 75,
-        marginRight: 20
-    },
-    mapStyle: {
-        flex: 0.25,
-        width: Dimensions.get("window").width
+        height: 100
     },
     statItem: {
         margin: 10,
         padding: 15,
         minHeight: 70,
-        backgroundColor: "#fff",
+        backgroundColor: "#ffff",
         flexDirection: "row",
         alignItems: "center",
         elevation: 5,
         borderRadius: 6
     },
     iconContainer: {
-        width: 40,
-        height: 40,
+        width: 30,
+        height: 30,
         alignItems: "center",
         justifyContent: "center",
         padding: 10,

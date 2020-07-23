@@ -9,14 +9,12 @@ class SearchUser extends React.Component {
     state = {
         users: [],
         searchQuery: "",
-        isLoading: false
     }
 
-    _search(){
+    searchUser(){
         if(this.state.searchQuery.length > 0){
-            this.setState({isLoading: true});
     
-            twitter.api("GET", "users/search.json", { q: this.state.searchQuery })
+            fetch("url.json.query="+  this.state.searchQuery, { })
                 .then(response => response)
                 .then(data => {
                     this.setState(
@@ -28,8 +26,7 @@ class SearchUser extends React.Component {
                 .catch(error => console.warn(error));
         }
         else {
-            this.setState({isLoading: false});
-            this.setState({users: []});
+            this.setState({users: [{id:0 , name:"RandomUser", pseudo:"NotRandm",avatar: "/img/unamed.jpeg"}]});
         }
     }
 
@@ -37,29 +34,25 @@ class SearchUser extends React.Component {
         return(
             <View style={styles.container}>
                 <SearchBar
-                    placeholder="Type Here..."
                     onChangeText={(text) => 
                     {
-                        this.setState({searchQuery: text}, this._search);
+                        this.setState({searchQuery: text}, this.searchUser);
                     }
                     }
                     value={this.state.searchQuery}
-                    placeholder="Rechercher..."
-                    autoCapitalize="none"
-                    showLoading={this.state.isLoading}
-                    onClear={() => {this.setState({users: []})}}
+                    placeholder="@User"
                 />
                 <ScrollView style={styles.usersScroll}>
                     {
-                        this.state.users.map((u, index) => (
+                        this.state.users.map((user, index) => (
                             <ListItem
                                 key={index}
-                                leftAvatar={{ source: { uri: u.profile_image_url_https } }}
+                                leftAvatar={{ source: { uri: user.avatar } }}
                                 title={
                                     <View style={{flexDirection: "row", alignItems: "center"}}>
-                                        <Text style={{marginRight: 5}}>{u.name}</Text>
+                                        <Text style={{marginRight: 5}}>{user.name}</Text>
                                         <Icon
-                                            iconStyle={{display: u.verified ? "flex" : "none"}}
+                                            iconStyle={{display: "flex" }}
                                             type="octicon"
                                             name="verified"
                                             color="#00acee"
@@ -67,10 +60,10 @@ class SearchUser extends React.Component {
                                         />
                                     </View>
                                 }
-                                subtitle={"@"+u.screen_name}
+                                subtitle={"@"+user.pseudo}
                                 bottomDivider
                                 subtitleStyle={{ color: "blue" }}
-                                onPress={() => {this.props.navigation.navigate("UserSingle", {user: u})}}
+                                onPress={() => {this.props.navigation.navigate("SingleUser", {user: user});}}
                                 chevron
                             />
                         ))

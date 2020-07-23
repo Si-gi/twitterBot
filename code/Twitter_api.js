@@ -30,7 +30,7 @@ export async function getTweetsFromIdUser(user_id){
         },
         {
             id: 1,
-            author: "Ayoub",
+            author: "Simon",
             content: "Worl hello, i am a #bot",
             hastag: ["bot", "truc"]
         }
