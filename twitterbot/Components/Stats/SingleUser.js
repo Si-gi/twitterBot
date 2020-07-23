@@ -49,12 +49,12 @@ class SingleUser extends React.Component {
 
     toggleFavorite(){
         if(this.state.infavorites){
-            const action = {type: "REMOVE_USER", value: this.props.route.params.user.screen_name};
+            const action = {type: "REMOVE_USER", value: this.props.route.params.user.pseudo};
             this.props.dispatch(action);
             this.setState({infavorites: false});
         }
         else {
-            const action = {type: "ADD_USER", value: this.props.route.params.user.screen_name};
+            const action = {type: "ADD_USER", value: this.props.route.params.user.pseudo};
             this.props.dispatch(action);
             this.setState({infavorites: true});
         }
@@ -69,11 +69,7 @@ class SingleUser extends React.Component {
                 headerRight: () => (
                     <TouchableOpacity 
                         style={{marginRight: 10}}
-                        onPress={() => 
-                        {
-                            this.props.navigation.navigate("AddUser");
-                        }
-                        }
+                        onPress={() => { this.props.navigation.navigate("AddUser"); }}
                     >
                         <Icon
                             name='star'
@@ -115,7 +111,7 @@ class SingleUser extends React.Component {
                             <Icon
                                 size={15} 
                                 type="font-awesome"
-                                name="sc-twitter"
+                                name="twitter"
                                 color="blue"
                             />
                         </View>
@@ -143,7 +139,7 @@ class SingleUser extends React.Component {
                             <Icon
                                 size={15} 
                                 type="font-awesome-5"
-                                name="user-follow"
+                                name="american-sign-language-interpreting"
                                 color="blue"
                             />
                         </View>

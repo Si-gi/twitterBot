@@ -48,7 +48,6 @@ export default class GoBotPostAuto extends React.Component {
                     }}
                 >
                     <View style={styles.centeredView}>
-                        <View style={styles.modalView}>
                             <Text h4 style={styles.modalText}>Bot wworking</Text>
                             <TouchableHighlight
                                 style={{ ...styles.stopButton }}
@@ -57,7 +56,6 @@ export default class GoBotPostAuto extends React.Component {
                                 }}
                             >
                             </TouchableHighlight>
-                        </View>
                     </View>
                 </Modal>
 
@@ -101,7 +99,7 @@ export default class GoBotPostAuto extends React.Component {
                             size={15}
                             color={"white"} />
                     }
-                    title=" GO"
+                    title=" Start"
                 />
             </View>
         );
@@ -131,19 +129,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginTop: 22
-    },
-    modalView: {
-        margin: 20,
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
-        elevation: 5
     },
     stopButton: {
         backgroundColor: "red",

@@ -13,7 +13,7 @@ export default class Stats extends React.Component {
         return (
             <Stack.Navigator initialRouteName="ListUserS">
                 <Stack.Screen name="SingleUser" component={SingleUser} />
-                <Stack.Screen name="AddUser" component={SearchUser} options={{title: "Rechercher"}}/>
+                <Stack.Screen name="SearchUser" component={SearchUser} options={{title: "Rechercher"}}/>
                 <Stack.Screen name="ListUserS" component={ListUserS} options={
                     { 
                         title: "Favoris",
@@ -21,7 +21,7 @@ export default class Stats extends React.Component {
                             <TouchableOpacity 
                                 style={{marginRight: 10}}
                                 onPress={
-                                    () => { this.props.navigation.navigate("AddUser");}
+                                    () => { this.props.navigation.navigate("SearchUser");}
                                 }
                             >
                             </TouchableOpacity>

@@ -25,10 +25,6 @@ export default class BotPostAuto extends React.Component {
         this.setState({ time });
     }
 
-    handleSwitchChange = displayTime => {
-        this.setState({ displayTime });
-    }
-
     handleTweetChange = tweet => {
         this.setState({ tweet });
     }
@@ -44,13 +40,7 @@ export default class BotPostAuto extends React.Component {
                 <TextInput placeholder="Nom de votre bot" value={this.state.botName} onChangeText={this.handleBotNameChange} style={styles.input} />
                 <TextInput placeholder="Son identifiant" value={this.state.botId} onChangeText={this.handleBotId} style={styles.input} />
                 <TextInput placeholder="Votre tweet" value={this.state.tweet} onChangeText={this.handleTweetChange} style={styles.input} />
-                <View style={styles.switchView}>
-                    <Text style={{ fontWeight: "bold" }}>Afficher l'heure dans vos tweet</Text>
-                    <Switch
-                        value={this.state.displayTime}
-                        onValueChange={this.handleSwitchChange}
-                    />
-                </View>
+
                 <TouchableOpacity style={styles.picker}>
                     <Picker
                         selectedValue={this.state.time}
@@ -71,7 +61,7 @@ export default class BotPostAuto extends React.Component {
                     onPress={() => this.props.route.params.addBot(this.state)}
                     icon={ 
                         <Ionicons
-                            name={"ios-redo"}
+                            name={"redo"}
                             size={15}
                             color={"white"} />
                     }

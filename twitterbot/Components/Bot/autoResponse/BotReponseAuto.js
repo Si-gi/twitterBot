@@ -11,7 +11,7 @@ export default class BotPostAuto extends React.Component {
         this.state = {
             type: "reponse",
             botName: "",
-            reponses: [{ id: 0, mot: "", reponse: "" }, { id: 1, mot: "", reponse: "" }, { id: 2, mot: "", reponse: "" }]
+            reponses:  "" 
         };
     }
 
@@ -47,16 +47,6 @@ export default class BotPostAuto extends React.Component {
                     <TextInput placeholder="Réponse" style={styles.inputDico} value={this.state.reponses[0].reponse} onChangeText={(mot) => this.handleReponseChange(mot, 0)} />
                 </View>
 
-                <View style={styles.dictionnaire}>
-                    <TextInput placeholder="Mot déclencheur" style={styles.inputDico} value={this.state.reponses[1].mot} onChangeText={(mot) => this.handleMotChange(mot, 1)} />
-                    <TextInput placeholder="Réponse" style={styles.inputDico} value={this.state.reponses[1].reponse} onChangeText={(reponse) => this.handleReponseChange(reponse, 1)} />
-                </View>
-
-                <View style={styles.dictionnaire}>
-                    <TextInput placeholder="Mot déclencheur" style={styles.inputDico} value={this.state.reponses[2].mot} onChangeText={(mot) => this.handleMotChange(mot, 2)} />
-                    <TextInput placeholder="Réponse" style={styles.inputDico} value={this.state.reponses[2].reponse} onChangeText={(reponse) => this.handleReponseChange(reponse, 2)} />
-                </View>
-
                 <Button
                     color = "blue"
                     onPress={() => this.props.route.params.addBot(this.state)}
@@ -76,21 +66,21 @@ export default class BotPostAuto extends React.Component {
 
 const styles = StyleSheet.create({
     input: {
-        backgroundColor: '#ececec',
+        backgroundColor: "#ececec",
         borderRadius: 10,
         padding: 10,
         margin: 20,
     },
     inputDico: {
-        backgroundColor: '#ececec',
+        backgroundColor: "#ececec",
         borderRadius: 10,
         padding: 10,
         margin: 20,
         flex: 0.5,
     },
     dictionnaire: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'stretch',
+        flexDirection: "row",
+        justifyContent: "space-around",
+        alignItems: "stretch",
     },
-})
+});

@@ -23,20 +23,17 @@ export default function App() {
                                 let iconName;
 
                                 if (route.name === "Stats") {
-                                    iconName = "analytics-outline";
+                                    iconName = "md-analytics";
                                 } else if (route.name === "Bot") {
                                     iconName = "logo-android";
                                 }
 
-                                // You can return any component that you like here!
-                                return <Ionicons name={iconName} size={size} color={color} />;
+                                return <Ionicons name={iconName} size={size} color="white" />;
                             }
                         })}
                         tabBarOptions={{
-                            activeTintColor: "blue",
-                            inactiveTintColor: "#fff",
                             style: {
-                                backgroundColor: "#3A3E42",//color you want to change
+                                backgroundColor: "#3A3E42",
                             }
                         }}
                     >

@@ -52,13 +52,6 @@ class ListUserS extends React.Component {
                             title={
                                 <View style={{flexDirection: "row", alignItems: "center"}}>
                                     <Text style={{marginRight: 5}}>{user.name}</Text>
-                                    <Icon
-                                        iconStyle={{display:  "flex"}}
-                                        type="octicon"
-                                        name="verified"
-                                        color="#00acee"
-                                        size={13}
-                                    />
                                 </View>
                             }
                             subtitle={"@"+user.pseudo}
