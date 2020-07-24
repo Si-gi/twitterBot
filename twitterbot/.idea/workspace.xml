@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d85ece8-1a5d-4fd6-b934-102dda306307" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.expo-shared/assets.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Bot/autoResponse/BotReponseAuto.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Bot/autoResponse/BotReponseAuto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Bot/autoResponse/ManageBotReponseAuto.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Bot/autoResponse/ManageBotReponseAuto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Stats/ListUserS.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Stats/ListUserS.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/Stats/SingleUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Stats/SingleUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Stats/Stats.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Stats/Stats.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +38,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="D:\Program Files\JetBrains\WebStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -58,7 +65,7 @@
       <workItem from="1595422746493" duration="8745000" />
       <workItem from="1595491834092" duration="1207000" />
       <workItem from="1595493594600" duration="10123000" />
-      <workItem from="1595531467567" duration="167000" />
+      <workItem from="1595531467567" duration="7163000" />
     </task>
     <servers />
   </component>
@@ -78,10 +85,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595440452759" />
-    <state x="707" y="234" width="504" height="504" key="search.everywhere.popup" timestamp="1595439346809">
+    <state x="707" y="234" width="672" height="504" key="search.everywhere.popup" timestamp="1595583615328">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="2863" y="315" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.2560.1400@1920.0.2560.1400" timestamp="1595431253263" />
-    <state x="707" y="234" width="504" height="504" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595439346809" />
+    <state x="707" y="234" width="672" height="504" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595583615328" />
   </component>
 </project>

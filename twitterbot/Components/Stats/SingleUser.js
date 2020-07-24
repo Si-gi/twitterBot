@@ -13,9 +13,11 @@ class SingleUser extends React.Component {
 
     state = {
         user: [],
-        nb_tweet: 1312,
+        nb_tweets: 1312,
         tweets : [],
-        infavorites: false
+        infavorites: false,
+        nb_followers: 161,
+        nb_acolytes: 1891
     }
 
     componentDidMount(){
@@ -122,7 +124,7 @@ class SingleUser extends React.Component {
                         </View>
                         <View style={{marginLeft: 17}}>
                             <Text style={{fontSize: 17, fontWeight: "bold", marginBottom: 6}}>Acolyte des Illustres</Text>
-                            <Text>{user.followers_count}</Text>
+                            <Text>{this.nb_acolytes}</Text>
                         </View>
                     </View>
                     <View style={styles.statItem}>
@@ -136,7 +138,7 @@ class SingleUser extends React.Component {
                         </View>
                         <View style={{marginLeft: 17}}>
                             <Text style={{fontSize: 17, fontWeight: "bold", marginBottom: 6}}>Abonnements</Text>
-                            <Text>{user.followers_count}</Text>
+                            <Text>{this.state.nb_followers}</Text>
                         </View>
                     </View>
                 </ScrollView>

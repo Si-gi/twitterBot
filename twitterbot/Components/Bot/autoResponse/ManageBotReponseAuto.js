@@ -9,96 +9,37 @@ export default class GoBotPostAuto extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modalVisible: false,
             type: this.props.route.params.bot.type,
             botName: this.props.route.params.bot.botName,
-            reponses: this.props.route.params.bot.reponses
+            response: this.props.route.params.bot.response,
+            command: this.props.route.params.bot.word
         };
     }
 
-    setModalVisible = (visible) => {
-        this.setState({ modalVisible: visible });
-    }
 
-    startBot() {
-        this.setModalVisible(true);
-        // twitter.api("GET", "statuses/mentions_timeline.json", { user_id: 1300498070 })
-        //     .then(response => response)
-        //     .then(data => {
-        //         console.log(data);
-        //     })
-        //     .catch(error => console.warn("error", error));
-    }
-
-    stopBot(modalVisible) {
-        this.setModalVisible(!modalVisible);
-    }
-
-    render() {
-        const { modalVisible } = this.state;
+    render(){
 
         return (
             <View style={styles.container}>
-                <Modal
-                    animationType="slide"
-                    transparent={true}
-                    visible={modalVisible}
-                    onRequestClose={() => {
-                        Alert.alert("Modal has been closed.");
-                    }}
-                >
-                    <View style={styles.centeredView}>
-                            <Text h4 style={styles.modalText}>Bot wworking</Text>
-                            <TouchableHighlight
-                                style={{ ...styles.stopButton }}
-                                onPress={() => {
-                                    this.stopBot(modalVisible)
-                                }}
-                            >
-                            </TouchableHighlight>
-                    </View>
-                </Modal>
+
+                <View style={styles.centeredView}>
+                    <Text h4 style={styles.modalText}>Bot wworking</Text>
+                </View>
 
                 <Text h2>{this.state.botName}</Text>
 
                 <View style={styles.dictionnaire}>
-                    <Text style={styles.inputDico}>{this.state.reponses[0].mot}</Text>
-                    <Ionicons
-                        name={"ios-arrow-forward"}
-                        size={35}
-                        color={"black"} />
-                    <Text style={styles.inputDico}>{this.state.reponses[0].reponse}</Text>
+                    <Text style={styles.inputDico}>{this.state.command} will get</Text>
+
+                    <Text style={styles.inputDico}>{this.state.response}</Text>
                 </View>
 
-                <View style={styles.dictionnaire}>
-                    <Text style={styles.inputDico}>{this.state.reponses[1].mot}</Text>
-                    <Ionicons
-                        name={"ios-arrow-forward"}
-                        size={35}
-                        color={"black"} />
-                    <Text style={styles.inputDico}>{this.state.reponses[1].reponse}</Text>
-                </View>
-
-                <View style={styles.dictionnaire}>
-                    <Text style={styles.inputDico}>{this.state.reponses[2].mot}</Text>
-                    <Ionicons
-                        name={"ios-arrow-forward"}
-                        size={35}
-                        color={"black"} />
-                    <Text style={styles.inputDico}>{this.state.reponses[2].reponse}</Text>
-                </View>
 
                 <Button
                     buttonStyle={styles.buttons}
                     onPress={() => {
                         this.startBot();
                     }}
-                    icon={
-                        <Ionicons
-                            name={"ios-rocket"}
-                            size={15}
-                            color={"white"} />
-                    }
                     title=" Start"
                 />
             </View>
@@ -110,16 +51,16 @@ export default class GoBotPostAuto extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'space-around',
+        alignItems: "center",
+        justifyContent: "space-around",
         padding: 30,
     },
     paramsContainer: {
-        flexDirection: 'row',
-        alignItems: 'center'
+        flexDirection: "row",
+        alignItems: "center"
     },
     center: {
-        alignItems: 'center'
+        alignItems: "center"
     },
     buttons: {
         backgroundColor: "blue"
@@ -147,15 +88,15 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
     inputDico: {
-        backgroundColor: '#ececec',
+        backgroundColor: "#ececec",
         borderRadius: 10,
         padding: 10,
         margin: 20,
         flex: 0.5,
     },
     dictionnaire: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',
+        flexDirection: "row",
+        justifyContent: "space-around",
+        alignItems: "center",
     },
-})
+});

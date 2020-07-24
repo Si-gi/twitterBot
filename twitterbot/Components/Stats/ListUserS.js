@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, View, Text } from "react-native";
+import {ScrollView, View, Text, StyleSheet} from "react-native";
 import { ListItem, Icon } from "react-native-elements";
 import {connect} from "react-redux";
 
@@ -42,7 +42,7 @@ class ListUserS extends React.Component {
     }
 
     render(){
-        return(
+        return(<View style={styles.container}>
             <ScrollView>
                 {
                     this.state.userS.map((user, index) => (
@@ -65,7 +65,8 @@ class ListUserS extends React.Component {
                     ))
                 }
             </ScrollView>
-        );
+            </View>
+            );
     }
 
 }
@@ -74,3 +75,10 @@ function mapStateToProps(state){
     return {userS : state.userS};
 }
 export default connect(mapStateToProps)(ListUserS);
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#d1f1e7",
+    },
+});

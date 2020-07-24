@@ -12,7 +12,7 @@ export default class BotPostAuto extends React.Component {
             type: "reponse",
             botName: "",
             response:  "",
-            command: ""
+            word: ""
         };
     }
 
@@ -20,8 +20,8 @@ export default class BotPostAuto extends React.Component {
         this.setState({ botName });
     }
 
-    handlewordChange = (command) => {
-        this.setState({command} );
+    handlewordChange = (word) => {
+        this.setState({word} );
     }
 
     handleResponseChange = response => {
@@ -36,7 +36,7 @@ export default class BotPostAuto extends React.Component {
                 <TextInput placeholder="Bot name" value={this.state.botName} onChangeText={this.handleBotNameChange} style={styles.input} />
 
                 <View style={styles.dictionnaire}>
-                    <TextInput placeholder="Commande " style={styles.inputDico} value={this.command} onChangeText={(command) => this.handlewordChange(command)} />
+                    <TextInput placeholder="Commande " style={styles.inputDico} value={this.word} onChangeText={(word) => this.handlewordChange(word)} />
                     <TextInput placeholder="tweet réponse" style={styles.inputDico} value={this.state.response} onChangeText={(response) => this.handleResponseChange(response)} />
                 </View>
 

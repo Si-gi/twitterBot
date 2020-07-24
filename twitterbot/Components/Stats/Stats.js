@@ -18,12 +18,12 @@ export default class Stats extends React.Component {
                     { 
                         title: "Favoris",
                         headerRight: () => (
-                            <TouchableOpacitys
+                            <TouchableOpacity
                                 onPress={
                                     () => { this.props.navigation.navigate("SearchUser");}
                                 }
                             >
-                            </TouchableOpacitys>
+                            </TouchableOpacity>
                         ) 
                     }
                 } />
