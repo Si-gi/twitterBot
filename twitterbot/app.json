@@ -22,9 +22,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.twitterbot.blrg",
-      "buildNumber": "1.0.0"
+      "supportsTablet": true
     }
   }
 }
